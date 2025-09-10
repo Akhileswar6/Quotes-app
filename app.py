@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for
 import random
+import os
 
-app = Flask(__name__)
+# Tell Flask to look for templates in the current directory (main folder)
+app = Flask(__name__, template_folder=os.path.dirname(os.path.abspath(__file__)))
 
 quotes = [
     {"author": "Linus Torvalds", "quote": "Talk is cheap. Show me the code."},
@@ -21,8 +23,8 @@ def home():
 
 @app.route("/add", methods=["POST"])
 def add_quote():
-    author = request.form["author"]
-    quote_text = request.form["quote"]
+    author = request.form.get("author")
+    quote_text = request.form.get("quote")
     if author and quote_text:
         quotes.append({"author": author, "quote": quote_text})
     return redirect(url_for("home"))
