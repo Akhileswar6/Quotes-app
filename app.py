@@ -1,9 +1,14 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 import random
 import os
 
-# Tell Flask to look for templates in the current directory (main folder)
+# Set template folder to current directory
 app = Flask(__name__, template_folder=os.path.dirname(os.path.abspath(__file__)))
+
+# Route to serve CSS from main folder
+@app.route('/<path:filename>')
+def serve_file(filename):
+    return send_from_directory(os.path.dirname(os.path.abspath(__file__)), filename)
 
 quotes = [
     {"author": "Linus Torvalds", "quote": "Talk is cheap. Show me the code."},
