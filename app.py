@@ -1,14 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for
 import random
-import os
 
-# Set template folder to current directory
-app = Flask(__name__, template_folder=os.path.dirname(os.path.abspath(__file__)))
-
-# Route to serve CSS from main folder
-@app.route('/<path:filename>')
-def serve_file(filename):
-    return send_from_directory(os.path.dirname(os.path.abspath(__file__)), filename)
+app = Flask(__name__)
 
 quotes = [
     {"author": "Linus Torvalds", "quote": "Talk is cheap. Show me the code."},
@@ -28,8 +21,8 @@ def home():
 
 @app.route("/add", methods=["POST"])
 def add_quote():
-    author = request.form.get("author")
-    quote_text = request.form.get("quote")
+    author = request.form["author"]
+    quote_text = request.form["quote"]
     if author and quote_text:
         quotes.append({"author": author, "quote": quote_text})
     return redirect(url_for("home"))
@@ -42,3 +35,7 @@ def delete_quote(index):
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
+
+
+
+
