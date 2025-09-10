@@ -1,0 +1,196 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+/* Body Background */
+body {
+  background:black;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Main Container */
+.container {
+  width: 100%;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  backdrop-filter: blur(12px);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Headings */
+h1 {
+  font-size: 32px;
+  margin-bottom: 25px;
+  font-family: "Epunda Slab", serif;
+  color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+h2 {
+    font-family: "Epunda Slab", serif;
+  margin: 30px 0 15px;
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
+/* Quote Box */
+.quote-box {
+  background: #fff;
+  color: #333;
+  padding: 20px;
+  border-radius: 15px;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
+}
+
+.quote-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.quote-box span {
+  font-size: 15px;
+  display: block;
+  margin-top: 10px;
+  color: #000000;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  background-color: rgb(29, 45, 67);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  margin: 12px 0;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+/* Form Styling */
+.form-box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+input, textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  width: 100%;
+}
+
+textarea {
+  resize: none;
+  min-height: 80px;
+}
+
+/* Quotes List */
+.quote-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.quote-list li {
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px 15px;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #eee;
+  line-height: 1.4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.quote-list li:hover {
+  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.quote-list span {
+  display: block;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  color: #ddd;
+}
+
+/* Small Button for Delete */
+.btn-delete {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  margin-left: 15px;
+  background: #e74c3c;
+  transition: all 0.3s ease;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.small-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 25px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .quote-box {
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
